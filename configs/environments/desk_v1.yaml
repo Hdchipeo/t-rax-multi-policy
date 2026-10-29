@@ -1,0 +1,46 @@
+environment:
+  class: trax_rl.envs.trax_desk_env.TraxDeskEnv
+  xml_path: assets/trax/desk_scene.xml
+  frameskip: 25
+  max_episode_steps: 1800
+  restrict_to_zone: true
+  safety_enabled: true
+  domain_randomization: false
+  human_scenarios: true
+control:
+  hz: 20
+  max_linear_m_s: 0.08
+  max_angular_rad_s: 1.0
+observation:
+  schema: desk_social_dict_v3
+  robot: 10
+  target: 4
+  sensors: 5
+  workspace: 6
+  humans: [3, 8]
+  objects: [2, 6]
+  simulated_cliff_probes: 4
+geometry:
+  units: meters
+  desk_size: [1.4, 0.75]
+  desk_top_height: 0.76
+  zone_center: [0.40, 0.02]
+  zone_size: [0.50, 0.40]
+  geometry_source: assets/trax/desk_scene.xml
+# Geometry is authoritative in MJCF. The class reads desk/zone bounds from the model.
+# This Dict contract requires a new policy (e.g. PPO MultiInputPolicy), not the room checkpoint.
+
+drivetrain:
+  type: continuous_tracks
+  model: mujoco_surface_velocity
+  track_spacing_m: 0.070036
+  contact_length_m: 0.068
+  mujoco_min_version: '3.11'
+
+humans:
+  scenario: desk_workday
+  duration_s: 90
+  max_people: 3
+  motion_model: kinematic_proxies
+  perception: simulated_camera_fov_and_occlusion
+  objects: [water_glass, new_object]

@@ -1,0 +1,52 @@
+{
+  "name": "autonomous_behavioral_dynamics",
+  "version": "1.0.0",
+  "algorithm": "PPO",
+  "target_hardware": "ESP32-S3",
+  "vector_acceleration": "Xtensa PIE via esp-nn",
+  "quantization_type": "int8_symmetric_weights_asymmetric_acts",
+  "control_hz": 10,
+  "observation": {
+    "schema": "behavioral_obs_v1",
+    "dim": 39,
+    "scale": 0.007874015748031496,
+    "zero_point": 0
+  },
+  "action": {
+    "type": "continuous",
+    "dim": 5,
+    "mapping": [
+      "linear_velocity",
+      "angular_velocity",
+      "pan_velocity",
+      "tilt_velocity",
+      "attention_intensity"
+    ]
+  },
+  "layers": [
+    {
+      "id": 1,
+      "in": 39,
+      "out": 128,
+      "multiplier": 1814881536,
+      "shift": -10,
+      "use_relu": true
+    },
+    {
+      "id": 2,
+      "in": 128,
+      "out": 128,
+      "multiplier": 1135796096,
+      "shift": -7,
+      "use_relu": true
+    },
+    {
+      "id": 3,
+      "in": 128,
+      "out": 5,
+      "multiplier": 1238675072,
+      "shift": -6,
+      "use_relu": false
+    }
+  ]
+}

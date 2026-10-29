@@ -1,0 +1,135 @@
+{
+  "steps": 1800,
+  "collisions": 0,
+  "fell": false,
+  "unstable": false,
+  "min_zone_clearance": 0.02853424979525268,
+  "completed_laps": 1,
+  "human_events": [
+    {
+      "time_s": 0.0,
+      "person_id": 1,
+      "action": "arrive"
+    },
+    {
+      "time_s": 3.0,
+      "person_id": 1,
+      "action": "sit"
+    },
+    {
+      "time_s": 5.0,
+      "person_id": 1,
+      "action": "type"
+    },
+    {
+      "time_s": 8.0,
+      "person_id": 2,
+      "action": "arrive"
+    },
+    {
+      "time_s": 12.0,
+      "person_id": 2,
+      "action": "wave"
+    },
+    {
+      "time_s": 14.0,
+      "person_id": 1,
+      "action": "wave"
+    },
+    {
+      "time_s": 17.0,
+      "person_id": 1,
+      "action": "place_glass"
+    },
+    {
+      "time_s": 22.0,
+      "person_id": 1,
+      "action": "release_water_glass"
+    },
+    {
+      "time_s": 23.0,
+      "person_id": 1,
+      "action": "type"
+    },
+    {
+      "time_s": 24.0,
+      "person_id": 2,
+      "action": "point"
+    },
+    {
+      "time_s": 26.0,
+      "person_id": 3,
+      "action": "arrive"
+    },
+    {
+      "time_s": 28.0,
+      "person_id": 1,
+      "action": "phone"
+    },
+    {
+      "time_s": 31.0,
+      "person_id": 3,
+      "action": "wave"
+    },
+    {
+      "time_s": 33.0,
+      "person_id": 2,
+      "action": "move"
+    },
+    {
+      "time_s": 34.0,
+      "person_id": 1,
+      "action": "type"
+    },
+    {
+      "time_s": 38.0,
+      "person_id": 3,
+      "action": "place_object"
+    },
+    {
+      "time_s": 43.0,
+      "person_id": 3,
+      "action": "release_new_object"
+    },
+    {
+      "time_s": 44.0,
+      "person_id": 3,
+      "action": "point"
+    },
+    {
+      "time_s": 46.0,
+      "person_id": 1,
+      "action": "wave"
+    },
+    {
+      "time_s": 53.0,
+      "person_id": 2,
+      "action": "leave"
+    },
+    {
+      "time_s": 58.0,
+      "person_id": 3,
+      "action": "leave"
+    },
+    {
+      "time_s": 66.0,
+      "person_id": 1,
+      "action": "stand"
+    },
+    {
+      "time_s": 69.0,
+      "person_id": 1,
+      "action": "move"
+    },
+    {
+      "time_s": 74.0,
+      "person_id": 1,
+      "action": "leave"
+    }
+  ],
+  "max_people": 3,
+  "objects": {
+    "water_glass": "on_table",
+    "new_object": "on_table"
+  }
+}

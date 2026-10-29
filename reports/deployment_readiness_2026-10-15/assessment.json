@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-15",
+  "readiness": "simulation_prototype; deployment_integration_required",
+  "assessed_repositories": [
+    "/Volumes/BOX_120GB/project/T-Rax/t-rax-multi-policy",
+    "/Volumes/BOX_120GB/project/T-Rax/t-rax-main",
+    "/Volumes/BOX_120GB/project/T-Rax/t-rax-vision-det-pico"
+  ],
+  "user_confirmed_missing_hardware": [
+    "track_encoders",
+    "imu",
+    "downward_cliff_sensors"
+  ],
+  "checkpoint": "/Volumes/BOX_120GB/project/T-Rax/t-rax-multi-policy/checkpoints/desk_social_ppo_v1_finetune_20261015_135543/best_model.zip",
+  "checkpoint_sha256": "6f9e01ff65c839433248d738fd1982d7097a1544fc1e26f8692cfbc026a5f657",
+  "observation_schema": "desk_social_rl_v1",
+  "checkpoint_timesteps": 458752,
+  "total_training_timesteps": 524288,
+  "actor": {
+    "input_dim": 71,
+    "hidden": [
+      128,
+      128
+    ],
+    "activation": "Tanh",
+    "output_dim": 5,
+    "parameters": 26373
+  },
+  "current_firmware": {
+    "input_arena_dim": 48,
+    "actor_observation_dim": 39,
+    "rl_control_hz": 10,
+    "rl_command_path": "head_targets_only",
+    "tof_initialization_commented": true,
+    "flashed_firmware_state_verified": false
+  },
+  "current_export": {
+    "compatible": false,
+    "reproduced_error": "TypeError: 'NoneType' object is not subscriptable"
+  },
+  "regression_tests": {
+    "passed": 46,
+    "failed": 0,
+    "seconds": 17.001
+  },
+  "hardware_tests_performed": false,
+  "firmware_modified": false,
+  "robot_commands_sent": false,
+  "recommendation": "Fix observation contract and faithful export; evaluate/train fixed-base head-only policy; defer free tabletop track control until measured state and independent edge safety exist"
+}

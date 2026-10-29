@@ -1,0 +1,153 @@
+{
+  "steps": 1800,
+  "collisions": 0,
+  "fell": false,
+  "unstable": false,
+  "min_zone_clearance": 0.022901688615189972,
+  "completed_laps": 0,
+  "human_events": [
+    {
+      "time_s": 1.717,
+      "person_id": 1,
+      "action": "arrive"
+    },
+    {
+      "time_s": 4.717,
+      "person_id": 1,
+      "action": "sit"
+    },
+    {
+      "time_s": 6.717,
+      "person_id": 1,
+      "action": "type"
+    },
+    {
+      "time_s": 9.717,
+      "person_id": 2,
+      "action": "arrive"
+    },
+    {
+      "time_s": 13.717,
+      "person_id": 2,
+      "action": "wave"
+    },
+    {
+      "time_s": 15.717,
+      "person_id": 1,
+      "action": "wave"
+    },
+    {
+      "time_s": 18.717,
+      "person_id": 1,
+      "action": "place_glass"
+    },
+    {
+      "time_s": 23.717,
+      "person_id": 1,
+      "action": "release_water_glass"
+    },
+    {
+      "time_s": 24.717,
+      "person_id": 1,
+      "action": "type"
+    },
+    {
+      "time_s": 25.717,
+      "person_id": 2,
+      "action": "point"
+    },
+    {
+      "time_s": 27.717,
+      "person_id": 3,
+      "action": "arrive"
+    },
+    {
+      "time_s": 29.717,
+      "person_id": 1,
+      "action": "phone"
+    },
+    {
+      "time_s": 32.717,
+      "person_id": 3,
+      "action": "wave"
+    },
+    {
+      "time_s": 34.717,
+      "person_id": 2,
+      "action": "move"
+    },
+    {
+      "time_s": 35.717,
+      "person_id": 1,
+      "action": "type"
+    },
+    {
+      "time_s": 39.717,
+      "person_id": 3,
+      "action": "place_object"
+    },
+    {
+      "time_s": 44.717,
+      "person_id": 3,
+      "action": "release_new_object"
+    },
+    {
+      "time_s": 45.717,
+      "person_id": 3,
+      "action": "point"
+    },
+    {
+      "time_s": 47.717,
+      "person_id": 1,
+      "action": "wave"
+    },
+    {
+      "time_s": 54.717,
+      "person_id": 2,
+      "action": "leave"
+    },
+    {
+      "time_s": 59.717,
+      "person_id": 3,
+      "action": "leave"
+    },
+    {
+      "time_s": 67.717,
+      "person_id": 1,
+      "action": "stand"
+    },
+    {
+      "time_s": 70.717,
+      "person_id": 1,
+      "action": "move"
+    },
+    {
+      "time_s": 75.717,
+      "person_id": 1,
+      "action": "leave"
+    }
+  ],
+  "max_people": 3,
+  "objects": {
+    "water_glass": "on_table",
+    "new_object": "on_table"
+  },
+  "social_metrics": {
+    "steps": 1800,
+    "collisions": 0,
+    "falls": 0,
+    "unstable": 0,
+    "safety_overrides": 0,
+    "wave_opportunities": 4,
+    "wave_responses": 2,
+    "people_noticed": 2,
+    "objects_inspected": 0,
+    "command_variation": 27.326368014502748,
+    "idle_steps": 1757,
+    "return_": 5.343930339081488,
+    "mean_command_variation": 0.015181315563612638,
+    "safety_override_rate": 0.0,
+    "idle_fraction": 0.9761111111111112,
+    "wave_response_rate": 0.5
+  }
+}

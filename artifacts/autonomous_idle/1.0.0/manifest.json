@@ -1,0 +1,52 @@
+{
+  "name": "autonomous_idle",
+  "version": "1.0.0",
+  "algorithm": "PPO",
+  "target_hardware": "ESP32-S3",
+  "vector_acceleration": "Xtensa PIE via esp-nn",
+  "quantization_type": "int8_symmetric_weights_asymmetric_acts",
+  "control_hz": 10,
+  "observation": {
+    "schema": "idle_obs_v1",
+    "dim": 6,
+    "scale": 0.007874015748031496,
+    "zero_point": 0
+  },
+  "action": {
+    "type": "discrete",
+    "dim": 5,
+    "mapping": [
+      "REST",
+      "LOOK_LEFT",
+      "LOOK_RIGHT",
+      "LOOK_CENTER",
+      "TRACK_TARGET"
+    ]
+  },
+  "layers": [
+    {
+      "id": 1,
+      "in": 6,
+      "out": 64,
+      "multiplier": 2008093184,
+      "shift": -10,
+      "use_relu": true
+    },
+    {
+      "id": 2,
+      "in": 64,
+      "out": 64,
+      "multiplier": 1846996608,
+      "shift": -7,
+      "use_relu": true
+    },
+    {
+      "id": 3,
+      "in": 64,
+      "out": 5,
+      "multiplier": 1931139072,
+      "shift": -9,
+      "use_relu": false
+    }
+  ]
+}

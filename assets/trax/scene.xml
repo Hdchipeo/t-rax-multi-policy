@@ -1,0 +1,165 @@
+<mujoco model="trax_scene">
+  <compiler angle="radian" meshdir="."/>
+  <option timestep="0.01" gravity="0 0 -9.81"/>
+
+  <visual>
+    <global offwidth="1600" offheight="1000" />
+    <quality shadowsize="4096" />
+    <headlight ambient="0.30 0.30 0.30" diffuse="0.45 0.45 0.45" specular="0.15 0.15 0.15"/>
+  </visual>
+
+  <asset>
+    <!-- 3D CAD Meshes of Robot T-RAX: Separated into Chassis and Head for real Pan/Tilt kinematics -->
+    <mesh name="trax_base_mesh" file="trax_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_chassis_white_mesh" file="trax_chassis_white.obj" scale="0.001 0.001 0.001" />
+    <mesh name="trax_chassis_silver_mesh" file="trax_chassis_silver.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_chassis_gold_mesh" file="trax_chassis_gold.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_sprocket_fl_mesh" file="trax_sprocket_front_left.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_sprocket_fr_mesh" file="trax_sprocket_front_right.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_sprocket_rl_mesh" file="trax_sprocket_rear_left.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_sprocket_rr_mesh" file="trax_sprocket_rear_right.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_track_shoe_left_mesh" file="trax_track_shoe_left.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_track_shoe_right_mesh" file="trax_track_shoe_right.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_pan_bracket_mesh" file="trax_pan_bracket.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_head_mesh" file="trax_head.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_head_white_mesh" file="trax_head_white.obj" scale="0.001 0.001 0.001" />
+    <mesh name="trax_head_silver_mesh" file="trax_head_silver.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_head_lens_mesh" file="trax_head_lens.stl" scale="0.001 0.001 0.001" />
+    <material name="trax_black" rgba="0.11 0.12 0.135 1" specular="0.30" shininess="0.40" />
+    <material name="trax_white" rgba="0.93 0.94 0.95 1" specular="0.35" shininess="0.45" />
+    <material name="trax_silver" rgba="0.72 0.75 0.78 1" specular="0.80" shininess="0.85" />
+    <material name="trax_gold" rgba="0.90 0.65 0.18 1" specular="0.85" shininess="0.90" />
+    <material name="trax_sprocket_mat" rgba="0.13 0.14 0.16 1" specular="0.45" shininess="0.55" />
+    <material name="trax_tread_mat" rgba="0.09 0.095 0.105 1" specular="0.24" shininess="0.32" />
+    <material name="trax_lens_mat" rgba="0.04 0.06 0.09 1" specular="0.95" shininess="0.98" />
+    
+    <!-- Realistic Robot Materials & Servo Color Palette -->
+    <material name="trax_mat" rgba="0.30 0.33 0.36 1" specular="0.4" shininess="0.5"/>
+    <material name="servo_blue" rgba="0.08 0.42 0.88 0.95" specular="0.6" shininess="0.7"/>
+    <material name="servo_metal" rgba="0.18 0.20 0.24 1" specular="0.6" shininess="0.8"/>
+    <material name="servo_horn_white" rgba="0.95 0.95 0.92 1" specular="0.3" shininess="0.4"/>
+    <material name="axis_gold" rgba="0.92 0.72 0.15 1" specular="0.8" shininess="0.9"/>
+    <material name="lens_glass" rgba="0.10 0.85 0.30 0.85" specular="0.9" shininess="1.0"/>
+    <material name="wall_mat" rgba="0.80 0.83 0.86 1" specular="0.2" shininess="0.3"/>
+    <material name="wall_trim" rgba="0.12 0.38 0.72 1" specular="0.6" shininess="0.7"/>
+  </asset>
+
+  <worldbody>
+    <!-- Ground plane with physical surface friction -->
+    <geom name="floor" type="plane" size="5 5 0.1" rgba="0.85 0.85 0.85 1" friction="1.0 0.01 0.001"/>
+
+    <!-- Room Perimeter Enclosure Walls (4.0m x 4.0m Arena Bounds) -->
+    <body name="arena_walls">
+      <geom name="wall_north" type="box" pos="0 2.02 0.15" size="2.06 0.02 0.15" material="wall_mat"/>
+      <geom name="trim_north" type="box" pos="0 1.99 0.015" size="2.00 0.01 0.015" material="wall_trim"/>
+      <geom name="wall_south" type="box" pos="0 -2.02 0.15" size="2.06 0.02 0.15" material="wall_mat"/>
+      <geom name="trim_south" type="box" pos="0 -1.99 0.015" size="2.00 0.01 0.015" material="wall_trim"/>
+      <geom name="wall_east" type="box" pos="2.02 0 0.15" size="0.02 2.06 0.15" material="wall_mat"/>
+      <geom name="trim_east" type="box" pos="1.99 0 0.015" size="0.01 2.00 0.015" material="wall_trim"/>
+      <geom name="wall_west" type="box" pos="-2.02 0 0.15" size="0.02 2.06 0.15" material="wall_mat"/>
+      <geom name="trim_west" type="box" pos="-1.99 0 0.015" size="0.01 2.00 0.015" material="wall_trim"/>
+    </body>
+
+    <!-- Dynamic Rolling Ball on Ground Plane (Z=0.08m rests bottom flush on floor) -->
+    <body name="target" mocap="true" pos="0 1.2 0.08">
+      <geom name="target_geom" type="sphere" size="0.08" rgba="1.0 0.28 0.12 1" contype="0" conaffinity="0"/>
+    </body>
+
+    <!-- Simulated Human Social Avatar Proxy (Doc 06 & Doc 13: S5, S6, S7) -->
+    <!-- Lowered to floor level: Cylinder rests flush on ground (Z=0.0 to 0.30m), head sits at 0.375m -->
+    <body name="human" mocap="true" pos="5.0 5.0 0">
+      <geom name="human_body" type="cylinder" size="0.09 0.15" pos="0 0 0.15" rgba="0.2 0.5 0.85 0.9" contype="0" conaffinity="0"/>
+      <geom name="human_head" type="sphere" size="0.075" pos="0 0 0.375" rgba="0.95 0.78 0.65 1.0" contype="0" conaffinity="0"/>
+    </body>
+
+    <!-- Physical Obstacle Cube for ToF & Collision Avoidance (Doc 07, Doc 13) -->
+    <body name="obstacle_cube" pos="-0.5 0.9 0.04">
+      <geom name="cube_geom" type="box" size="0.08 0.08 0.04" rgba="0.95 0.5 0.1 1" material="servo_metal" friction="1.0"/>
+    </body>
+
+    <!-- Unknown / Novel Object for Curiosity & Semantic Novelty Exploration -->
+    <body name="novel_object" pos="0.6 1.1 0.06">
+      <geom name="novel_geom" type="cylinder" size="0.06 0.06" rgba="0.8 0.2 0.9 1"/>
+    </body>
+
+    <!-- T-RAX Robot Base Assembly with Planar Locomotion (X, Y, Yaw) -->
+    <!-- Z=0.023m rests the bottom track surface flush on the ground plane -->
+    <light name="room_key_light" pos="-0.8 -1.2 2.2" dir="0.3 0.5 -1" diffuse="0.55 0.54 0.52" castshadow="true" />
+    <light name="room_fill_light" pos="1.2 -0.6 1.8" dir="-0.4 0.2 -1" diffuse="0.28 0.32 0.38" castshadow="false" />
+    <body name="trax_base" pos="0 0 0.02292">
+      <joint name="base_x" type="slide" axis="1 0 0" damping="10.0" />
+      <joint name="base_y" type="slide" axis="0 1 0" damping="10.0" />
+      <joint name="base_yaw" type="hinge" axis="0 0 1" damping="5.0" />
+      <geom name="chassis_col" type="box" size="0.053 0.046 0.020" pos="0 -0.006 0.020" mass="0.8" rgba="0.2 0.2 0.2 0" />
+      <geom name="trax_chassis_visual" type="mesh" mesh="trax_base_mesh" material="trax_black" mass="0" contype="0" conaffinity="0" group="2" />
+      <geom name="trax_chassis_white_visual" type="mesh" mesh="trax_chassis_white_mesh" material="trax_white" mass="0" contype="0" conaffinity="0" group="2" />
+      <geom name="trax_chassis_silver_visual" type="mesh" mesh="trax_chassis_silver_mesh" material="trax_silver" mass="0" contype="0" conaffinity="0" group="2" />
+      <geom name="trax_chassis_gold_visual" type="mesh" mesh="trax_chassis_gold_mesh" material="trax_gold" mass="0" contype="0" conaffinity="0" group="2" />
+      <geom name="sprocket_front_left" type="mesh" mesh="trax_sprocket_fl_mesh" pos="-0.035000 -0.000486 0.001242" material="trax_sprocket_mat" mass="0" contype="0" conaffinity="0" group="2" />
+      <geom name="sprocket_front_right" type="mesh" mesh="trax_sprocket_fr_mesh" pos="0.035000 -0.000486 0.001242" material="trax_sprocket_mat" mass="0" contype="0" conaffinity="0" group="2" />
+      <geom name="sprocket_rear_left" type="mesh" mesh="trax_sprocket_rl_mesh" pos="-0.035028 -0.036525 -0.001925" material="trax_sprocket_mat" mass="0" contype="0" conaffinity="0" group="2" />
+      <geom name="sprocket_rear_right" type="mesh" mesh="trax_sprocket_rr_mesh" pos="0.035028 -0.036525 -0.001925" material="trax_sprocket_mat" mass="0" contype="0" conaffinity="0" group="2" />
+      <body name="head_pan_link" pos="-0.000088 -0.001175 0.021413">
+        <inertial pos="0.012 0 0.006" mass="0.015" diaginertia="2e-6 2e-6 2e-6" />
+        <joint name="joint_pan" type="hinge" axis="0 0 1" range="-1.047 1.047" damping="0.5" armature="0.01" />
+        <geom name="trax_pan_bracket_visual" type="mesh" mesh="trax_pan_bracket_mesh" material="trax_black" mass="0" contype="0" conaffinity="0" group="2" />
+        <body name="head_tilt_link" pos="0 0 0.011862">
+          <inertial pos="0 0.002 0.018" mass="0.045" diaginertia="8e-6 8e-6 8e-6" />
+          <joint name="joint_tilt" type="hinge" axis="1 0 0" range="-0.698 0.698" damping="0.5" armature="0.01" />
+          <geom name="trax_head_visual" type="mesh" mesh="trax_head_mesh" material="trax_black" mass="0" contype="0" conaffinity="0" group="2" />
+          <geom name="trax_head_white_visual" type="mesh" mesh="trax_head_white_mesh" material="trax_white" mass="0" contype="0" conaffinity="0" group="2" />
+          <geom name="trax_head_silver_visual" type="mesh" mesh="trax_head_silver_mesh" material="trax_silver" mass="0" contype="0" conaffinity="0" group="2" />
+          <geom name="trax_head_lens_visual" type="mesh" mesh="trax_head_lens_mesh" material="trax_lens_mat" mass="0" contype="0" conaffinity="0" group="2" />
+          <site name="camera_center" pos="0.000088 0.0254 0.02595" size="0.002" group="3" rgba="0 1 0 0.3" />
+          <camera name="robot_camera" pos="0.000088 0.0265 0.02595" xyaxes="1 0 0 0 0 1" fovy="65" />
+        </body>
+      </body>
+      <geom name="track_left_tread_0" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.014146 -0.019456" quat="1.000000000 0.000000000 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_1" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.022647 -0.018598" quat="0.997564027 -0.069756803 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_2" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.031277 -0.017186" quat="0.996194695 -0.087155780 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_3" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.041243 -0.013361" quat="0.986285565 -0.165047824 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_4" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.046951 -0.007761" quat="0.861629121 -0.507538430 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_5" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.048289 0.000550" quat="0.675590130 -0.737277408 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_6" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.044073 0.007533" quat="0.398749025 -0.917060093 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_7" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.037044 0.012583" quat="0.258818986 -0.965925842 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_8" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.029259 0.016157" quat="0.182235285 -0.983254952 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_9" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.020744 0.018565" quat="0.121869124 -0.992546179 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_10" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.012061 0.020176" quat="0.087155607 -0.996194710 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_11" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.003309 0.021102" quat="0.026176836 -0.999657328 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_12" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 0.005164 0.019684" quat="-0.139173431 -0.990268022 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_13" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 0.012491 0.015197" quat="-0.333806830 -0.942641501 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_14" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 0.017541 0.008255" quat="-0.515038165 -0.857167247 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_15" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 0.018919 0.000220" quat="-0.731353650 -0.681998415 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_16" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 0.015907 -0.007933" quat="-0.833885903 -0.551936864 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_17" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 0.010551 -0.014128" quat="-0.939692688 -0.342019958 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_18" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 0.002604 -0.017445" quat="-0.990268095 -0.139172916 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_left_tread_19" type="mesh" mesh="trax_track_shoe_left_mesh" pos="-0.035018 -0.005749 -0.019044" quat="-0.997564051 -0.069756457 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_0" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.014146 -0.019456" quat="1.000000000 0.000000000 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_1" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.022647 -0.018598" quat="0.997564027 -0.069756803 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_2" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.031277 -0.017186" quat="0.996194695 -0.087155780 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_3" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.041243 -0.013361" quat="0.986285565 -0.165047824 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_4" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.046951 -0.007761" quat="0.861629121 -0.507538430 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_5" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.048289 0.000550" quat="0.675590130 -0.737277408 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_6" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.044073 0.007533" quat="0.398749025 -0.917060093 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_7" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.037044 0.012583" quat="0.258818986 -0.965925842 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_8" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.029259 0.016157" quat="0.182235285 -0.983254952 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_9" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.020744 0.018565" quat="0.121869124 -0.992546179 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_10" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.012061 0.020176" quat="0.087155607 -0.996194710 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_11" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.003309 0.021102" quat="0.026176836 -0.999657328 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_12" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 0.005164 0.019684" quat="-0.139173431 -0.990268022 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_13" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 0.012491 0.015197" quat="-0.333806830 -0.942641501 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_14" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 0.017541 0.008255" quat="-0.515038165 -0.857167247 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_15" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 0.018919 0.000220" quat="-0.731353650 -0.681998415 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_16" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 0.015907 -0.007933" quat="-0.833885903 -0.551936864 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_17" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 0.010551 -0.014128" quat="-0.939692688 -0.342019958 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_18" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 0.002604 -0.017445" quat="-0.990268095 -0.139172916 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="track_right_tread_19" type="mesh" mesh="trax_track_shoe_right_mesh" pos="0.035018 -0.005749 -0.019044" quat="-0.997564051 -0.069756457 0 0" mass="0" material="trax_tread_mat" contype="0" conaffinity="0" group="2" />
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- 50Hz PWM Servo Position Actuators (Pan & Tilt) -->
+    <position name="pan_servo" joint="joint_pan" kp="20" kv="1.5" ctrlrange="-1.047 1.047"/>
+    <position name="tilt_servo" joint="joint_tilt" kp="20" kv="1.5" ctrlrange="-0.698 0.698"/>
+  </actuator>
+</mujoco>

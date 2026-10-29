@@ -1,0 +1,25 @@
+{
+  "checkpoint_sha256": "ec4dd327289f17fab1428ddfed6c6aeb73efb0db4ddee680ca133c1440c80799",
+  "num_timesteps": 4096,
+  "observation_dim": 54,
+  "controller_mode": "goal_residual",
+  "output_semantics": "unclipped_actor_mean",
+  "action_low": [
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0
+  ],
+  "action_high": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "onnx_max_error": 2.9802322387695312e-08,
+  "validation_passed": true,
+  "requires_goal_runtime": true,
+  "deployment_ready": false
+}

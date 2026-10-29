@@ -1,0 +1,63 @@
+{
+  "episodes": [
+    {
+      "seed": 1001,
+      "initial_yaw": 0.0,
+      "steps": 1800,
+      "collisions": 0,
+      "falls": 0,
+      "unstable": 0,
+      "safety_overrides": 0,
+      "wave_opportunities": 4,
+      "wave_responses": 3,
+      "people_noticed": 2,
+      "objects_inspected": 1,
+      "command_variation": 68.59173048433655,
+      "idle_steps": 1692,
+      "return_": 9.534371560661198,
+      "mean_command_variation": 0.038106516935742525,
+      "safety_override_rate": 0.0,
+      "idle_fraction": 0.94,
+      "wave_response_rate": 0.75
+    },
+    {
+      "seed": 1002,
+      "initial_yaw": 0.0,
+      "steps": 1800,
+      "collisions": 0,
+      "falls": 0,
+      "unstable": 0,
+      "safety_overrides": 0,
+      "wave_opportunities": 4,
+      "wave_responses": 3,
+      "people_noticed": 2,
+      "objects_inspected": 1,
+      "command_variation": 68.75085567594552,
+      "idle_steps": 1684,
+      "return_": 8.864894557296342,
+      "mean_command_variation": 0.03819491981996973,
+      "safety_override_rate": 0.0,
+      "idle_fraction": 0.9355555555555556,
+      "wave_response_rate": 0.75
+    }
+  ],
+  "mean": {
+    "return_": 9.199633058978769,
+    "wave_response_rate": 0.75,
+    "people_noticed": 2.0,
+    "objects_inspected": 1.0,
+    "safety_override_rate": 0.0,
+    "mean_command_variation": 0.03815071837785613,
+    "idle_fraction": 0.9377777777777778
+  },
+  "unsafe_episodes": 0,
+  "gates": {
+    "no_collisions_falls_or_instability": true,
+    "waves": true,
+    "people": true,
+    "objects": true,
+    "safety_overrides": true
+  },
+  "passed": true,
+  "num_timesteps": 458752
+}

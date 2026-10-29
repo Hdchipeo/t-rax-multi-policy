@@ -1,0 +1,12 @@
+steps,waves,people,objects,passed,run
+65536,0.25,2.0,0.0,False,desk_social_ppo_v1_20261015_134716
+131072,0.5,2.0,0.0,False,desk_social_ppo_v1_20261015_134716
+196608,0.25,1.0,0.0,False,desk_social_ppo_v1_20261015_134716
+262144,0.12,2.0,1.0,False,desk_social_ppo_v1_20261015_134716
+262144,0.25,2.0,1.0,False,desk_social_ppo_v1_20261015_134716
+262144,0.25,2.0,1.0,False,desk_social_ppo_v1_finetune_20261015_135543
+327680,0.12,2.0,1.0,False,desk_social_ppo_v1_finetune_20261015_135543
+393216,0.5,2.0,1.0,True,desk_social_ppo_v1_finetune_20261015_135543
+458752,0.75,2.0,1.0,True,desk_social_ppo_v1_finetune_20261015_135543
+524288,0.5,2.0,1.0,True,desk_social_ppo_v1_finetune_20261015_135543
+524288,0.62,2.0,1.0,True,desk_social_ppo_v1_finetune_20261015_135543

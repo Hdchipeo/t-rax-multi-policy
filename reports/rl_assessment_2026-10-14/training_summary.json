@@ -1,0 +1,570 @@
+{
+  "autonomous_idle": {
+    "event_file": "runs/autonomous_idle/PPO_2/events.out.tfevents.1790849001.Mac-mini-cua-ang.local.59761.0",
+    "scalars": {
+      "rollout/ep_len_mean": {
+        "count": 62,
+        "first_step": 16384,
+        "last_step": 1015808,
+        "first_value": 500.0,
+        "last_value": 500.0,
+        "first10_mean": 500.0,
+        "last10_mean": 500.0
+      },
+      "rollout/ep_rew_mean": {
+        "count": 62,
+        "first_step": 16384,
+        "last_step": 1015808,
+        "first_value": 64.32994842529297,
+        "last_value": 224.95164489746094,
+        "first10_mean": 105.1667251586914,
+        "last10_mean": 196.5097442626953
+      },
+      "rollout/success_rate": {
+        "count": 62,
+        "first_step": 16384,
+        "last_step": 1015808,
+        "first_value": 0.0,
+        "last_value": 0.10999999940395355,
+        "first10_mean": 0.027999999932944775,
+        "last10_mean": 0.07599999941885471
+      },
+      "time/fps": {
+        "count": 62,
+        "first_step": 16384,
+        "last_step": 1015808,
+        "first_value": 24174.0,
+        "last_value": 8390.0,
+        "first10_mean": 11492.8,
+        "last10_mean": 8397.4
+      },
+      "train/approx_kl": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": 0.01282413862645626,
+        "last_value": 0.0023924873676151037,
+        "first10_mean": 0.058936022548004986,
+        "last10_mean": 0.009755765134468675
+      },
+      "train/clip_fraction": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": 0.18512573838233948,
+        "last_value": 0.03509521484375,
+        "first10_mean": 0.22119262628257275,
+        "last10_mean": 0.030393676646053792
+      },
+      "train/clip_range": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": 0.20000000298023224,
+        "last_value": 0.20000000298023224,
+        "first10_mean": 0.20000000298023224,
+        "last10_mean": 0.20000000298023224
+      },
+      "train/entropy_loss": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": -1.598513126373291,
+        "last_value": -0.2217632234096527,
+        "first10_mean": -1.1766578674316406,
+        "last10_mean": -0.31089001297950747
+      },
+      "train/explained_variance": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": 0.06893128156661987,
+        "last_value": 0.9990125894546509,
+        "first10_mean": 0.8363326489925385,
+        "last10_mean": 0.9989689409732818
+      },
+      "train/learning_rate": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": 0.0003000000142492354,
+        "last_value": 0.0003000000142492354,
+        "first10_mean": 0.0003000000142492354,
+        "last10_mean": 0.0003000000142492354
+      },
+      "train/loss": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": 0.129248708486557,
+        "last_value": 0.2483743280172348,
+        "first10_mean": 0.24812030792236328,
+        "last10_mean": 0.22653618603944778
+      },
+      "train/policy_gradient_loss": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": -0.013216563500463963,
+        "last_value": -0.001347127603366971,
+        "first10_mean": -0.01782604049658403,
+        "last10_mean": -0.003019909386057407
+      },
+      "train/value_loss": {
+        "count": 61,
+        "first_step": 32768,
+        "last_step": 1015808,
+        "first_value": 0.5903699398040771,
+        "last_value": 0.5244967937469482,
+        "first10_mean": 0.6670392543077469,
+        "last10_mean": 0.45997570753097533
+      }
+    }
+  },
+  "autonomous_behavioral_dynamics": {
+    "event_file": "runs/autonomous_behavioral_dynamics/PPO_1/events.out.tfevents.1791020388.Mac-mini-cua-ang.local.57948.0",
+    "scalars": {
+      "drives/arousal": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.727317750453949,
+        "last_value": 0.7972255349159241,
+        "first10_mean": 0.581721855700016,
+        "last10_mean": 0.5849861055612564
+      },
+      "drives/boredom": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.006000000052154064,
+        "first10_mean": 0.08019999880343676,
+        "last10_mean": 0.08630000110715627
+      },
+      "drives/curiosity": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.12600000202655792,
+        "last_value": 0.10400000214576721,
+        "first10_mean": 0.31973071172833445,
+        "last10_mean": 0.28636927008628843
+      },
+      "drives/energy_budget": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.5416393876075745,
+        "last_value": 0.7411320209503174,
+        "first10_mean": 0.6334273099899292,
+        "last10_mean": 0.8882459878921509
+      },
+      "drives/fear": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0010236966994853097,
+        "last10_mean": 0.00653261441951285
+      },
+      "drives/habituation": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 1.0,
+        "last_value": 1.0,
+        "first10_mean": 0.8681000053882599,
+        "last10_mean": 0.3423000007867813
+      },
+      "drives/perception_confidence": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 1.0,
+        "last_value": 1.0,
+        "first10_mean": 1.0,
+        "last10_mean": 1.0
+      },
+      "drives/safety": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 1.0,
+        "last_value": 1.0,
+        "first10_mean": 0.9989763021469116,
+        "last10_mean": 0.9934673845767975
+      },
+      "drives/social_need": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.05000000074505806,
+        "last_value": 0.75,
+        "first10_mean": 0.6750000026077032,
+        "last10_mean": 0.4699999917298555
+      },
+      "novelty/mean_novelty": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.31466150283813477,
+        "last_value": 0.31983935832977295,
+        "first10_mean": 0.2851511999964714,
+        "last10_mean": 0.29360169768333433
+      },
+      "penalty/behavior_switch": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "penalty/collision": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "penalty/crowding": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.034907884895801544,
+        "first10_mean": 0.006342800706624985,
+        "last10_mean": 0.012135781347751617
+      },
+      "penalty/energy": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.038420915603637695,
+        "last_value": 0.045944537967443466,
+        "first10_mean": 0.026573253516107797,
+        "last10_mean": 0.025709177693352105
+      },
+      "penalty/excessive_movement": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.24344063997268678,
+        "last10_mean": 0.44079687297344206
+      },
+      "penalty/head_oscillation": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.020000000298023225
+      },
+      "penalty/jerk": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.022739998996257782,
+        "last_value": 0.01900278404355049,
+        "first10_mean": 0.018117997888475658,
+        "last10_mean": 0.015533562283962965
+      },
+      "penalty/near_obstacle": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "penalty/repetition": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "penalty/reverse": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.007500000298023224,
+        "last10_mean": 0.0
+      },
+      "penalty/safety_override": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.5,
+        "last_value": 0.0,
+        "first10_mean": 0.25,
+        "last10_mean": 0.05
+      },
+      "penalty/servo_limit": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0002666170010343194,
+        "last10_mean": 0.0
+      },
+      "penalty/signal_spam": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "penalty/stare": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.023999999463558196
+      },
+      "reward/approach": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "reward/discovery": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "reward/dist_reduction": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.08975618332624435,
+        "last_value": 0.0,
+        "first10_mean": 0.008975618332624436,
+        "last10_mean": 0.0
+      },
+      "reward/engagement": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.22374999523162842,
+        "last_value": 0.0,
+        "first10_mean": 0.07175000011920929,
+        "last10_mean": 0.022624999284744263
+      },
+      "reward/fixation": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.2211548537015915,
+        "last_value": 0.0,
+        "first10_mean": 0.047859089076519014,
+        "last10_mean": 0.023791461298242212
+      },
+      "reward/human": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.07999999821186066,
+        "last_value": 0.07999999821186066,
+        "first10_mean": 0.03999999910593033,
+        "last10_mean": 0.023142857104539873
+      },
+      "reward/inspection": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.38677066564559937,
+        "last_value": 0.0,
+        "first10_mean": 0.060976956784725186,
+        "last10_mean": 0.020711660385131836
+      },
+      "reward/new_view": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.01450182031840086,
+        "last_value": 0.01617519184947014,
+        "first10_mean": 0.01384216146543622,
+        "last10_mean": 0.013848769757896662
+      },
+      "reward/novelty": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.09768737852573395,
+        "last_value": 0.06486145406961441,
+        "first10_mean": 0.05987056009471416,
+        "last10_mean": 0.05405899062752724
+      },
+      "reward/quiet": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.0,
+        "last10_mean": 0.0
+      },
+      "reward/scan": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.0,
+        "last_value": 0.0,
+        "first10_mean": 0.008269159868359566,
+        "last10_mean": 0.012896557245403529
+      },
+      "reward/social_zone": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.15625,
+        "last_value": 0.0,
+        "first10_mean": 0.03815846145153046,
+        "last10_mean": 0.025
+      },
+      "reward/total": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.7087099552154541,
+        "last_value": 0.06118144094944,
+        "first10_mean": -0.20253930538892745,
+        "last10_mean": -0.39210010319948196
+      },
+      "safety/override_rate": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 0.3880000114440918,
+        "last_value": 0.0833333358168602,
+        "first10_mean": 0.36980000138282776,
+        "last10_mean": 0.03399999970570207
+      },
+      "time/fps": {
+        "count": 76,
+        "first_step": 327680,
+        "last_step": 942080,
+        "first_value": 9348.0,
+        "last_value": 6931.0,
+        "first10_mean": 7023.4,
+        "last10_mean": 6916.1
+      },
+      "train/approx_kl": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 0.006386441178619862,
+        "last_value": 0.011214304715394974,
+        "first10_mean": 0.007832310255616903,
+        "last10_mean": 0.010641849227249622
+      },
+      "train/clip_fraction": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 0.06556396186351776,
+        "last_value": 0.11286620795726776,
+        "first10_mean": 0.07840454056859017,
+        "last10_mean": 0.11593139544129372
+      },
+      "train/clip_range": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 0.20000000298023224,
+        "last_value": 0.20000000298023224,
+        "first10_mean": 0.20000000298023224,
+        "last10_mean": 0.20000000298023224
+      },
+      "train/entropy_loss": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": -6.273960113525391,
+        "last_value": -4.809551239013672,
+        "first10_mean": -6.1599225997924805,
+        "last10_mean": -4.897050952911377
+      },
+      "train/explained_variance": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 0.9905740022659302,
+        "last_value": 0.9966879487037659,
+        "first10_mean": 0.9892260730266571,
+        "last10_mean": 0.9961714148521423
+      },
+      "train/learning_rate": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 0.0001500000071246177,
+        "last_value": 0.0001500000071246177,
+        "first10_mean": 0.0001500000071246177,
+        "last10_mean": 0.0001500000071246177
+      },
+      "train/loss": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 20.391468048095703,
+        "last_value": 2.467381000518799,
+        "first10_mean": 10.756967234611512,
+        "last10_mean": 2.3558834552764893
+      },
+      "train/policy_gradient_loss": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": -0.005990693811327219,
+        "last_value": -0.010831670835614204,
+        "first10_mean": -0.007373494142666459,
+        "last10_mean": -0.010540279000997544
+      },
+      "train/std": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 0.8737313151359558,
+        "last_value": 0.7333288192749023,
+        "first10_mean": 0.8584770739078522,
+        "last10_mean": 0.7437135219573975
+      },
+      "train/value_loss": {
+        "count": 75,
+        "first_step": 335872,
+        "last_step": 942080,
+        "first_value": 22.872486114501953,
+        "last_value": 7.986386299133301,
+        "first10_mean": 17.369477462768554,
+        "last10_mean": 8.332077312469483
+      }
+    }
+  }
+}

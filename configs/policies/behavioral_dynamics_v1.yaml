@@ -1,0 +1,83 @@
+policy:
+  name: autonomous_behavioral_dynamics
+  version: 1.0.0
+  control_hz: 10
+  device: cpu
+
+environment:
+  id: TRAXBehavioral-v1
+  timestep: 0.01
+  frameskip: 10
+  scene_xml: assets/trax/scene.xml
+  max_episode_steps: 500
+
+observation:
+  schema: behavioral_obs_v1
+  dim: 39
+  groups:
+    robot: 8
+    vision: 16
+    temporal: 6
+    internal: 5
+    exploration: 4
+
+action:
+  type: continuous
+  dim: 5
+  mapping:
+    0: linear_velocity    # [-1.0 .. 1.0]
+    1: angular_velocity   # [-1.0 .. 1.0]
+    2: pan_velocity       # [-1.0 .. 1.0]
+    3: tilt_velocity      # [-1.0 .. 1.0]
+    4: attention_intensity # [0.0 .. 1.0]
+
+reward:
+  components:
+    w_novelty: 0.25
+    w_new_view: 0.15
+    w_human: 0.20
+    w_engagement: 0.25
+    w_quiet: 0.45
+    w_collision: 2.00
+    w_near_obstacle: 0.30
+    w_jerk: 0.20
+    w_repetition: 0.15
+    w_signal_spam: 0.50
+    w_energy_cost: 0.15
+    w_limit: 0.35
+    w_override: 0.50
+    w_approach: 0.40
+    w_discovery: 0.50
+    w_dist_reduction: 0.50
+    w_fixation: 0.35
+    w_inspection: 0.40
+    w_social_zone: 0.25
+    w_crowding: 0.35
+    w_reverse: 0.50
+    w_switch: 0.25
+    w_oscillation: 0.20
+    w_excessive_movement: 0.60
+
+network:
+  net_arch: [128, 128]
+  activation: relu
+
+training:
+  algorithm: PPO
+  total_timesteps: 1000000
+  n_envs: 8
+  vec_type: subproc
+  learning_rate: 0.0003
+  n_steps: 1024
+  batch_size: 128
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+
+quantization:
+  platform: espdl_s8
+  target_device: esp32s3
+  calibration_samples: 1000
+  bits: 8

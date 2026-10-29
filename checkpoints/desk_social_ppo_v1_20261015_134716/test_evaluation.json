@@ -1,0 +1,82 @@
+{
+  "episodes": [
+    {
+      "seed": 2001,
+      "initial_yaw": 0.0,
+      "steps": 1800,
+      "collisions": 0,
+      "falls": 0,
+      "unstable": 0,
+      "safety_overrides": 0,
+      "wave_opportunities": 4,
+      "wave_responses": 2,
+      "people_noticed": 2,
+      "objects_inspected": 0,
+      "command_variation": 27.98466633092146,
+      "idle_steps": 1741,
+      "return_": 5.7108466425963895,
+      "mean_command_variation": 0.015547036850511921,
+      "safety_override_rate": 0.0,
+      "idle_fraction": 0.9672222222222222,
+      "wave_response_rate": 0.5
+    },
+    {
+      "seed": 2002,
+      "initial_yaw": 3.141592653589793,
+      "steps": 1800,
+      "collisions": 0,
+      "falls": 0,
+      "unstable": 0,
+      "safety_overrides": 0,
+      "wave_opportunities": 4,
+      "wave_responses": 1,
+      "people_noticed": 2,
+      "objects_inspected": 0,
+      "command_variation": 27.39234726632946,
+      "idle_steps": 1776,
+      "return_": 3.2335039880944336,
+      "mean_command_variation": 0.015217970703516366,
+      "safety_override_rate": 0.0,
+      "idle_fraction": 0.9866666666666667,
+      "wave_response_rate": 0.25
+    },
+    {
+      "seed": 2003,
+      "initial_yaw": -1.5707963267948966,
+      "steps": 1800,
+      "collisions": 0,
+      "falls": 0,
+      "unstable": 0,
+      "safety_overrides": 0,
+      "wave_opportunities": 4,
+      "wave_responses": 0,
+      "people_noticed": 2,
+      "objects_inspected": 0,
+      "command_variation": 22.451977716335055,
+      "idle_steps": 1735,
+      "return_": 2.739246942333434,
+      "mean_command_variation": 0.012473320953519475,
+      "safety_override_rate": 0.0,
+      "idle_fraction": 0.9638888888888889,
+      "wave_response_rate": 0.0
+    }
+  ],
+  "mean": {
+    "return_": 3.8945325243414195,
+    "wave_response_rate": 0.25,
+    "people_noticed": 2.0,
+    "objects_inspected": 0.0,
+    "safety_override_rate": 0.0,
+    "mean_command_variation": 0.014412776169182587,
+    "idle_fraction": 0.9725925925925926
+  },
+  "unsafe_episodes": 0,
+  "gates": {
+    "no_collisions_falls_or_instability": true,
+    "waves": false,
+    "people": true,
+    "objects": false,
+    "safety_overrides": true
+  },
+  "passed": false
+}

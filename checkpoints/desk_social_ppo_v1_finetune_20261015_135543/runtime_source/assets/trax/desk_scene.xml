@@ -1,0 +1,273 @@
+<mujoco model="trax_desktop_workspace">
+  <compiler angle="radian" meshdir="." />
+  <option timestep=".002" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic" iterations="60" />
+  <visual>
+    <global offwidth="1600" offheight="1000" />
+    <quality shadowsize="4096" />
+    <headlight ambient=".4 .4 .4" diffuse=".7 .7 .7" specular=".2 .2 .2" />
+    <map znear=".005" zfar="20" />
+  </visual>
+  <default>
+    <geom friction=".9 .005 .0001" condim="4" solref=".006 1" solimp=".95 .99 .001" />
+  </default>
+  <asset>
+    <mesh name="trax_base_mesh" file="trax_base.stl" scale="0.001 0.001 0.001" />
+    <mesh name="trax_head_mesh" file="trax_head.stl" scale="0.001 0.001 0.001" />
+    <material name="trax_mat" rgba="0.30 0.33 0.36 1" specular="0.4" shininess="0.5" />
+    <material name="servo_blue" rgba="0.08 0.42 0.88 0.95" specular="0.6" shininess="0.7" />
+    <material name="servo_metal" rgba="0.18 0.20 0.24 1" specular="0.6" shininess="0.8" />
+    <material name="servo_horn_white" rgba="0.95 0.95 0.92 1" specular="0.3" shininess="0.4" />
+    <material name="axis_gold" rgba="0.92 0.72 0.15 1" specular="0.8" shininess="0.9" />
+    <material name="lens_glass" rgba="0.10 0.85 0.30 0.85" specular="0.9" shininess="1.0" />
+    <material name="wall_mat" rgba="0.80 0.83 0.86 1" specular="0.2" shininess="0.3" />
+    <material name="wall_trim" rgba="0.12 0.38 0.72 1" specular="0.6" shininess="0.7" />
+    <texture name="woodgrain" type="2d" builtin="checker" width="512" height="512" rgb1=".49 .34 .22" rgb2=".52 .37 .25" />
+    <material name="desk_wood" rgba=".56 .40 .27 1" />
+    <material name="desk_dark" rgba=".06 .075 .10 1" />
+    <material name="desk_silver" rgba=".50 .55 .62 1" />
+    <material name="desk_mat" rgba=".10 .18 .20 1" />
+    <material name="desk_screen" rgba=".025 .065 .12 1" emission=".4" />
+    <material name="desk_cyan" rgba=".20 .75 .80 1" emission=".3" />
+    <material name="desk_cream" rgba=".84 .80 .68 1" />
+    <material name="desk_green" rgba=".17 .42 .22 1" />
+    <material name="desk_orange" rgba=".95 .40 .12 1" />
+    <texture name="ambient_sky" type="skybox" builtin="gradient" rgb1=".45 .49 .53" rgb2=".82 .81 .76" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <include file="desk_humans.xml" />
+    <light name="key_light" pos="-.6 -.4 2.4" dir=".2 .3 -1" diffuse=".85 .81 .74" castshadow="true" />
+    <light name="fill_light" pos="1 -.2 1.8" dir="-.4 .2 -1" diffuse=".4 .5 .65" castshadow="false" />
+    <geom name="room_floor" type="plane" pos="0 0 0" size="4 4 .1" material="desk_cream" />
+    <geom name="back_wall" type="box" pos="0 .80 1.1" size="2 .025 1.1" material="desk_cream" />
+    <geom name="desk_top" type="box" pos="0 0 .7425" size=".70 .375 .0175" material="desk_wood" />
+    <geom name="desk_front_edge" type="box" pos="0 -.374 .738" size=".70 .001 .012" material="desk_wood" contype="0" conaffinity="0" group="2" />
+    <geom name="desk_leg_0_0" type="box" pos="-0.61 -0.29 .36" size=".022 .022 .36" material="desk_dark" />
+    <geom name="desk_leg_0_1" type="box" pos="-0.61 0.29 .36" size=".022 .022 .36" material="desk_dark" />
+    <geom name="desk_leg_1_0" type="box" pos="0.61 -0.29 .36" size=".022 .022 .36" material="desk_dark" />
+    <geom name="desk_leg_1_1" type="box" pos="0.61 0.29 .36" size=".022 .022 .36" material="desk_dark" />
+    <geom name="desk_crossbar" type="box" pos="0 .29 .62" size=".61 .018 .025" material="desk_dark" />
+    <body name="monitor" pos="-.20 .235 .76">
+      <geom name="monitor_foot" type="box" pos="0 0 .008" size=".105 .060 .008" material="desk_dark" />
+      <geom name="monitor_stem" type="box" pos="0 .025 .11" size=".018 .016 .10" material="desk_silver" />
+      <geom name="monitor_bezel" type="box" pos="0 .025 .265" size=".287 .018 .167" material="desk_dark" />
+      <geom name="monitor_display" type="box" pos="0 .005 .265" size=".272 .001 .151" material="desk_screen" contype="0" conaffinity="0" group="2" />
+      <geom name="editor_sidebar" type="box" pos="-.226 .003 .265" size=".044 .001 .144" material="desk_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_0" type="box" pos="-0.1 .001 0.37" size="0.08 .001 .002" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_1" type="box" pos="-0.082 .001 0.347" size="0.099 .001 .002" material="desk_silver" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_2" type="box" pos="-0.064 .001 0.324" size="0.118 .001 .002" material="desk_silver" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_3" type="box" pos="-0.1 .001 0.301" size="0.137 .001 .002" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_4" type="box" pos="-0.082 .001 0.278" size="0.08 .001 .002" material="desk_silver" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_5" type="box" pos="-0.064 .001 0.255" size="0.099 .001 .002" material="desk_silver" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_6" type="box" pos="-0.1 .001 0.23199999999999998" size="0.118 .001 .002" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_7" type="box" pos="-0.082 .001 0.209" size="0.137 .001 .002" material="desk_silver" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_8" type="box" pos="-0.064 .001 0.186" size="0.08 .001 .002" material="desk_silver" contype="0" conaffinity="0" group="2" />
+      <geom name="code_line_9" type="box" pos="-0.1 .001 0.163" size="0.099 .001 .002" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+      <geom name="monitor_indicator" type="box" pos=".25 .003 .108" size=".003 .002 .0015" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    </body>
+    <body name="keyboard" pos="-.22 -.15 .76">
+      <geom name="keyboard_base" type="box" pos="0 0 .008" size=".205 .066 .008" material="desk_dark" />
+      <geom name="key_0_0" type="box" pos="-0.185 -0.05 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_0_1" type="box" pos="-0.159 -0.05 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_0_2" type="box" pos="-0.133 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_3" type="box" pos="-0.107 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_4" type="box" pos="-0.081 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_5" type="box" pos="-0.05499999999999999 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_6" type="box" pos="-0.028999999999999998 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_7" type="box" pos="-0.0030000000000000027 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_8" type="box" pos="0.022999999999999993 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_9" type="box" pos="0.04899999999999999 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_10" type="box" pos="0.07500000000000001 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_11" type="box" pos="0.10099999999999998 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_12" type="box" pos="0.127 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_13" type="box" pos="0.15299999999999997 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_0_14" type="box" pos="0.179 -0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_0" type="box" pos="-0.185 -0.025 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_1_1" type="box" pos="-0.159 -0.025 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_1_2" type="box" pos="-0.133 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_3" type="box" pos="-0.107 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_4" type="box" pos="-0.081 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_5" type="box" pos="-0.05499999999999999 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_6" type="box" pos="-0.028999999999999998 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_7" type="box" pos="-0.0030000000000000027 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_8" type="box" pos="0.022999999999999993 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_9" type="box" pos="0.04899999999999999 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_10" type="box" pos="0.07500000000000001 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_11" type="box" pos="0.10099999999999998 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_12" type="box" pos="0.127 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_13" type="box" pos="0.15299999999999997 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_1_14" type="box" pos="0.179 -0.025 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_0" type="box" pos="-0.185 0.0 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_2_1" type="box" pos="-0.159 0.0 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_2_2" type="box" pos="-0.133 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_3" type="box" pos="-0.107 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_4" type="box" pos="-0.081 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_5" type="box" pos="-0.05499999999999999 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_6" type="box" pos="-0.028999999999999998 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_7" type="box" pos="-0.0030000000000000027 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_8" type="box" pos="0.022999999999999993 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_9" type="box" pos="0.04899999999999999 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_10" type="box" pos="0.07500000000000001 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_11" type="box" pos="0.10099999999999998 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_12" type="box" pos="0.127 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_13" type="box" pos="0.15299999999999997 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_2_14" type="box" pos="0.179 0.0 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_0" type="box" pos="-0.185 0.02500000000000001 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_3_1" type="box" pos="-0.159 0.02500000000000001 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_3_2" type="box" pos="-0.133 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_3" type="box" pos="-0.107 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_4" type="box" pos="-0.081 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_5" type="box" pos="-0.05499999999999999 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_6" type="box" pos="-0.028999999999999998 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_7" type="box" pos="-0.0030000000000000027 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_8" type="box" pos="0.022999999999999993 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_9" type="box" pos="0.04899999999999999 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_10" type="box" pos="0.07500000000000001 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_11" type="box" pos="0.10099999999999998 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_12" type="box" pos="0.127 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_13" type="box" pos="0.15299999999999997 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_3_14" type="box" pos="0.179 0.02500000000000001 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_4_0" type="box" pos="-0.185 0.05 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_4_1" type="box" pos="-0.159 0.05 .019" size=".011 .010 .004" material="desk_silver" />
+      <geom name="key_4_2" type="box" pos="-0.133 0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_4_3" type="box" pos="-0.107 0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_4_10" type="box" pos="0.07500000000000001 0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_4_11" type="box" pos="0.10099999999999998 0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_4_12" type="box" pos="0.127 0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_4_13" type="box" pos="0.15299999999999997 0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="key_4_14" type="box" pos="0.179 0.05 .019" size=".011 .010 .004" material="desk_cream" />
+      <geom name="spacebar" type="box" pos="-.015 .050 .019" size=".075 .010 .004" material="desk_cream" />
+    </body>
+    <geom name="mouse_pad" type="box" pos=".085 -.15 .761" size=".06 .105 .001" material="desk_mat" />
+    <body name="mouse" pos=".085 -.15 .762">
+      <geom name="mouse_shell" type="ellipsoid" pos="0 0 .014" size=".024 .041 .016" material="desk_silver" />
+      <geom name="mouse_split" type="box" pos="0 .011 .030" size=".0006 .024 .0007" material="desk_dark" contype="0" conaffinity="0" group="2" />
+      <geom name="mouse_wheel" type="cylinder" pos="0 .013 .030" size=".005 .002" material="desk_dark" euler="0 1.570796 0" contype="0" conaffinity="0" group="2" />
+    </body>
+    <geom name="notebook" type="box" pos="-.55 -.16 .772" size=".09 .085 .012" material="desk_cyan" />
+    <geom name="notebook_pages" type="box" pos="-.55 -.16 .774" size=".087 .082 .009" material="desk_cream" />
+    <geom name="notebook_cover" type="box" pos="-.55 -.16 .785" size=".09 .085 .001" material="desk_cyan" />
+    <body name="mug" pos="-.55 .025 .76">
+      <geom name="mug_cup" type="cylinder" pos="0 0 .042" size=".034 .042" material="desk_cream" />
+      <geom name="coffee" type="cylinder" pos="0 0 .085" size=".029 .0005" material="desk_wood" contype="0" conaffinity="0" group="2" />
+      <geom name="mug_handle" type="ellipsoid" pos=".040 0 .043" size=".015 .009 .023" material="desk_cream" />
+    </body>
+    <body name="succulent" pos=".60 .29 .76">
+      <geom name="plant_pot" type="cylinder" pos="0 0 .032" size=".043 .032" material="desk_cream" />
+      <geom name="plant_soil" type="cylinder" pos="0 0 .065" size=".037 .002" material="desk_wood" />
+      <geom name="leaf_0" type="ellipsoid" pos="-0.018 0 .095" size=".012 .018 .04" material="desk_green" contype="0" conaffinity="0" group="2" />
+      <geom name="leaf_1" type="ellipsoid" pos="0.018 0 .095" size=".012 .018 .04" material="desk_green" contype="0" conaffinity="0" group="2" />
+      <geom name="leaf_2" type="ellipsoid" pos="0 0.018 .095" size=".012 .018 .04" material="desk_green" contype="0" conaffinity="0" group="2" />
+      <geom name="leaf_3" type="ellipsoid" pos="0 -0.018 .095" size=".012 .018 .04" material="desk_green" contype="0" conaffinity="0" group="2" />
+      <geom name="leaf_4" type="ellipsoid" pos="0 0 .095" size=".012 .018 .04" material="desk_green" contype="0" conaffinity="0" group="2" />
+    </body>
+    <geom name="desk_zone_mat" type="box" pos=".40 .02 .7606" size=".25 .20 .0006" material="desk_mat" friction=".5 .005 .0001" />
+    <geom name="zone_line_front" type="box" pos=".40 -.179 .7615" size=".25 .001 .0003" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    <geom name="zone_line_rear" type="box" pos=".40 .219 .7615" size=".25 .001 .0003" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    <geom name="zone_line_left" type="box" pos=".151 .02 .7615" size=".001 .20 .0003" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    <geom name="zone_line_right" type="box" pos=".649 .02 .7615" size=".001 .20 .0003" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    <geom name="dock_pad" type="box" pos=".30 -.06 .7616" size=".058 .055 .0004" material="desk_silver" contype="0" conaffinity="0" group="2" />
+    <geom name="dock_led_0" type="box" pos="0.27 -.113 .7622" size=".004 .001 .0003" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    <geom name="dock_led_1" type="box" pos="0.28400000000000003 -.113 .7622" size=".004 .001 .0003" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    <geom name="dock_led_2" type="box" pos="0.29800000000000004 -.113 .7622" size=".004 .001 .0003" material="desk_cyan" contype="0" conaffinity="0" group="2" />
+    <body name="desk_ornament" pos=".60 .14 .762">
+      <geom name="ornament_base" type="cylinder" pos="0 0 .010" size=".022 .010" material="desk_silver" />
+      <geom name="ornament_crystal" type="ellipsoid" pos="0 0 .038" size=".012 .012 .025" material="desk_cyan" />
+    </body>
+    <body name="desk_ball" pos=".50 .135 .778">
+      <freejoint name="desk_ball_free" />
+      <geom name="desk_ball_geom" type="sphere" pos="0 0 0" size=".015" material="desk_orange" mass=".012" friction=".7 .005 .001" condim="6" />
+    </body>
+    <body name="trax_base" pos=".30 -.06 .785">
+      <freejoint name="robot_free" />
+      <geom name="trax_chassis_visual" type="mesh" mesh="trax_base_mesh" material="trax_mat" euler="0 0 3.14159265" contype="0" conaffinity="0" />
+      <geom name="chassis_col" type="box" size="0.053 0.046 0.020" pos="0 -0.006 0.020" mass="0.8" rgba="0.2 0.2 0.2 0" />
+      <geom name="pan_servo_casing" type="box" size="0.011 0.006 0.014" pos="0 -0.004 0.024" material="servo_blue" contype="0" conaffinity="0" />
+      <geom name="pan_servo_mounting_tabs" type="box" size="0.015 0.006 0.0012" pos="0 -0.004 0.033" material="servo_blue" contype="0" conaffinity="0" />
+      <geom name="pan_output_shaft" type="cylinder" size="0.003 0.003" pos="0 0.0 0.036" material="axis_gold" contype="0" conaffinity="0" />
+      <body name="head_pan_link" pos="0 0.0 0.038">
+        <joint name="joint_pan" type="hinge" axis="0 0 1" range="-1.047 1.047" damping="0.5" armature="0.01" />
+        <geom name="pan_horn_disk" type="cylinder" size="0.011 0.002" pos="0 0 0.002" material="servo_horn_white" contype="0" conaffinity="0" />
+        <geom name="pan_u_bracket_base" type="box" size="0.014 0.009 0.002" pos="0 0 0.006" material="servo_metal" mass="0.03" contype="0" conaffinity="0" />
+        <geom name="pan_bracket_left_arm" type="box" size="0.002 0.008 0.008" pos="-0.014 0 0.014" material="servo_metal" contype="0" conaffinity="0" />
+        <geom name="pan_bracket_right_arm" type="box" size="0.002 0.008 0.008" pos="0.014 0 0.014" material="servo_metal" contype="0" conaffinity="0" />
+        <geom name="tilt_servo_casing" type="box" size="0.012 0.006 0.009" pos="-0.002 0 0.014" material="servo_blue" contype="0" conaffinity="0" />
+        <geom name="tilt_output_shaft" type="cylinder" size="0.003 0.003" pos="0.012 0 0.022" euler="0 1.5707963 0" material="axis_gold" contype="0" conaffinity="0" />
+        <body name="head_tilt_link" pos="0 0 0.022">
+          <joint name="joint_tilt" type="hinge" axis="1 0 0" range="-0.698 0.698" damping="0.5" armature="0.01" />
+          <geom name="tilt_axis_pin" type="cylinder" size="0.0035 0.017" euler="0 1.5707963 0" material="axis_gold" mass="0.02" contype="0" conaffinity="0" />
+          <geom name="tilt_horn_arm" type="box" size="0.0015 0.005 0.008" pos="0.015 0 0.004" material="servo_horn_white" contype="0" conaffinity="0" />
+          <geom name="trax_head_visual" type="mesh" mesh="trax_head_mesh" material="trax_mat" euler="0 0 3.14159265" contype="0" conaffinity="0" />
+          <geom name="camera_lens_ring" type="cylinder" size="0.007 0.002" pos="0 0.033 0.0" euler="1.5707963 0 0" material="servo_metal" contype="0" conaffinity="0" />
+          <geom name="camera_lens_glass" type="cylinder" size="0.005 0.0025" pos="0 0.0335 0.0" euler="1.5707963 0 0" material="lens_glass" contype="0" conaffinity="0" />
+          <site name="camera_center" pos="0 0.034 0.0" size="0.004" rgba="0 1 0 1" />
+          <camera name="robot_camera" pos="0 .037 0" xyaxes="1 0 0 0 0 1" fovy="65" />
+        </body>
+      </body>
+      <geom name="track_left_contact" type="box" pos="-0.045 0 -.020" size=".009 .042 .0042" mass=".036" friction=".5 .005 .0001" condim="4" material="desk_dark" surfacevel="0 0 0 0 0 0" />
+      <geom name="track_left_tread_0" type="box" pos="-0.04500000 0.02800000 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_1" type="box" pos="-0.04500000 0.02085841 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_2" type="box" pos="-0.04500000 0.01371681 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_3" type="box" pos="-0.04500000 0.00657522 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_4" type="box" pos="-0.04500000 -0.00056637 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_5" type="box" pos="-0.04500000 -0.00770796 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_6" type="box" pos="-0.04500000 -0.01484956 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_7" type="box" pos="-0.04500000 -0.02199115 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_left_tread_8" type="box" pos="-0.04500000 -0.02913151 -0.02295420" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.999181806 -0.040444010 0 0" />
+      <geom name="track_left_tread_9" type="box" pos="-0.04500000 -0.03580096 -0.02062519" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.956653180 -0.291229622 0 0" />
+      <geom name="track_left_tread_10" type="box" pos="-0.04500000 -0.04048412 -0.01533615" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.852227077 -0.523172064 0 0" />
+      <geom name="track_left_tread_11" type="box" pos="-0.04500000 -0.04198855 -0.00843378" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.692660086 -0.721264171 0 0" />
+      <geom name="track_left_tread_12" type="box" pos="-0.04500000 -0.03993118 -0.00167559" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.488276528 -0.872688966 0 0" />
+      <geom name="track_left_tread_13" type="box" pos="-0.04500000 -0.03483587 0.00321765" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.252300449 -0.967648946 0 0" />
+      <geom name="track_left_tread_14" type="box" pos="-0.04500000 -0.02800000 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_15" type="box" pos="-0.04500000 -0.02085841 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_16" type="box" pos="-0.04500000 -0.01371681 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_17" type="box" pos="-0.04500000 -0.00657522 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_18" type="box" pos="-0.04500000 0.00056637 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_19" type="box" pos="-0.04500000 0.00770796 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_20" type="box" pos="-0.04500000 0.01484956 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_21" type="box" pos="-0.04500000 0.02199115 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_left_tread_22" type="box" pos="-0.04500000 0.02913151 0.00495420" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.040444010 -0.999181806 0 0" />
+      <geom name="track_left_tread_23" type="box" pos="-0.04500000 0.03580096 0.00262519" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.291229622 -0.956653180 0 0" />
+      <geom name="track_left_tread_24" type="box" pos="-0.04500000 0.04048412 -0.00266385" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.523172064 -0.852227077 0 0" />
+      <geom name="track_left_tread_25" type="box" pos="-0.04500000 0.04198855 -0.00956622" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.721264171 -0.692660086 0 0" />
+      <geom name="track_left_tread_26" type="box" pos="-0.04500000 0.03993118 -0.01632441" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.872688966 -0.488276528 0 0" />
+      <geom name="track_left_tread_27" type="box" pos="-0.04500000 0.03483587 -0.02121765" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.967648946 -0.252300449 0 0" />
+      <geom name="track_right_contact" type="box" pos="0.045 0 -.020" size=".009 .042 .0042" mass=".036" friction=".5 .005 .0001" condim="4" material="desk_dark" surfacevel="0 0 0 0 0 0" />
+      <geom name="track_right_tread_0" type="box" pos="0.04500000 0.02800000 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_1" type="box" pos="0.04500000 0.02085841 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_2" type="box" pos="0.04500000 0.01371681 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_3" type="box" pos="0.04500000 0.00657522 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_4" type="box" pos="0.04500000 -0.00056637 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_5" type="box" pos="0.04500000 -0.00770796 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_6" type="box" pos="0.04500000 -0.01484956 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_7" type="box" pos="0.04500000 -0.02199115 -0.02300000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="1.000000000 0.000000000 0 0" />
+      <geom name="track_right_tread_8" type="box" pos="0.04500000 -0.02913151 -0.02295420" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.999181806 -0.040444010 0 0" />
+      <geom name="track_right_tread_9" type="box" pos="0.04500000 -0.03580096 -0.02062519" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.956653180 -0.291229622 0 0" />
+      <geom name="track_right_tread_10" type="box" pos="0.04500000 -0.04048412 -0.01533615" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.852227077 -0.523172064 0 0" />
+      <geom name="track_right_tread_11" type="box" pos="0.04500000 -0.04198855 -0.00843378" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.692660086 -0.721264171 0 0" />
+      <geom name="track_right_tread_12" type="box" pos="0.04500000 -0.03993118 -0.00167559" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.488276528 -0.872688966 0 0" />
+      <geom name="track_right_tread_13" type="box" pos="0.04500000 -0.03483587 0.00321765" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.252300449 -0.967648946 0 0" />
+      <geom name="track_right_tread_14" type="box" pos="0.04500000 -0.02800000 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_15" type="box" pos="0.04500000 -0.02085841 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_16" type="box" pos="0.04500000 -0.01371681 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_17" type="box" pos="0.04500000 -0.00657522 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_18" type="box" pos="0.04500000 0.00056637 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_19" type="box" pos="0.04500000 0.00770796 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_20" type="box" pos="0.04500000 0.01484956 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_21" type="box" pos="0.04500000 0.02199115 0.00500000" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="0.000000000 -1.000000000 0 0" />
+      <geom name="track_right_tread_22" type="box" pos="0.04500000 0.02913151 0.00495420" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.040444010 -0.999181806 0 0" />
+      <geom name="track_right_tread_23" type="box" pos="0.04500000 0.03580096 0.00262519" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.291229622 -0.956653180 0 0" />
+      <geom name="track_right_tread_24" type="box" pos="0.04500000 0.04048412 -0.00266385" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.523172064 -0.852227077 0 0" />
+      <geom name="track_right_tread_25" type="box" pos="0.04500000 0.04198855 -0.00956622" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.721264171 -0.692660086 0 0" />
+      <geom name="track_right_tread_26" type="box" pos="0.04500000 0.03993118 -0.01632441" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.872688966 -0.488276528 0 0" />
+      <geom name="track_right_tread_27" type="box" pos="0.04500000 0.03483587 -0.02121765" size=".009 .0025 .0012" mass="0" material="desk_dark" contype="0" conaffinity="0" group="2" quat="-0.967648946 -0.252300449 0 0" />
+    </body>
+    <camera name="desk_overview" pos="1.35 -1.65 1.70" xyaxes=".774 .633 0 -.230 .281 .932" fovy="43" />
+    <camera name="robot_closeup" pos="1.00 -.90 1.28" xyaxes=".843 .537 0 -.210 .330 .920" fovy="40" />
+    <camera name="desk_topdown" pos="0 0 2.4" xyaxes="1 0 0 0 1 0" fovy="48" />
+  </worldbody>
+  <actuator>
+    <position name="pan_servo" joint="joint_pan" kp="20" kv="1.5" ctrlrange="-1.047 1.047" />
+    <position name="tilt_servo" joint="joint_tilt" kp="20" kv="1.5" ctrlrange="-0.698 0.698" />
+  </actuator>
+</mujoco>

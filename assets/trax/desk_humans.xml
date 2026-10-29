@@ -1,0 +1,156 @@
+<mujocoinclude>
+  <body name="human_0_torso" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_torso_geom" contype="0" conaffinity="0" group="1" rgba=".16 .40 .68 1" type="ellipsoid" size=".17 .10 .26" />
+  </body>
+  <body name="human_0_head" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_head_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".085 .085 .11" />
+    <geom type="sphere" pos="-0.03 .078 .025" size=".012" rgba=".08 .09 .12 1" contype="0" conaffinity="0" group="1" />
+    <geom type="sphere" pos="0.03 .078 .025" size=".012" rgba=".08 .09 .12 1" contype="0" conaffinity="0" group="1" />
+    <geom type="ellipsoid" pos="0 .084 -.01" size=".014 .018 .02" rgba=".70 .49 .36 1" contype="0" conaffinity="0" group="1" />
+  </body>
+  <body name="human_0_upper_l" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_upper_l_geom" contype="0" conaffinity="0" group="1" rgba=".16 .40 .68 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_0_fore_l" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_fore_l_geom" contype="0" conaffinity="0" group="1" rgba=".16 .40 .68 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_0_hand_l" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_hand_l_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".035 .05 .022" />
+  </body>
+  <body name="human_0_upper_r" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_upper_r_geom" contype="0" conaffinity="0" group="1" rgba=".16 .40 .68 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_0_fore_r" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_fore_r_geom" contype="0" conaffinity="0" group="1" rgba=".16 .40 .68 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_0_hand_r" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_hand_r_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".035 .05 .022" />
+  </body>
+  <body name="human_0_thigh_l" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_thigh_l_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_0_shin_l" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_shin_l_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_0_foot_l" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_foot_l_geom" contype="0" conaffinity="0" group="1" rgba=".06 .07 .09 1" type="ellipsoid" size=".055 .11 .045" />
+  </body>
+  <body name="human_0_thigh_r" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_thigh_r_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_0_shin_r" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_shin_r_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_0_foot_r" mocap="true" pos="0 -4 -3">
+    <geom name="human_0_foot_r_geom" contype="0" conaffinity="0" group="1" rgba=".06 .07 .09 1" type="ellipsoid" size=".055 .11 .045" />
+  </body>
+  <body name="human_1_torso" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_torso_geom" contype="0" conaffinity="0" group="1" rgba=".65 .29 .22 1" type="ellipsoid" size=".17 .10 .26" />
+  </body>
+  <body name="human_1_head" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_head_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".085 .085 .11" />
+    <geom type="sphere" pos="-0.03 .078 .025" size=".012" rgba=".08 .09 .12 1" contype="0" conaffinity="0" group="1" />
+    <geom type="sphere" pos="0.03 .078 .025" size=".012" rgba=".08 .09 .12 1" contype="0" conaffinity="0" group="1" />
+    <geom type="ellipsoid" pos="0 .084 -.01" size=".014 .018 .02" rgba=".70 .49 .36 1" contype="0" conaffinity="0" group="1" />
+  </body>
+  <body name="human_1_upper_l" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_upper_l_geom" contype="0" conaffinity="0" group="1" rgba=".65 .29 .22 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_1_fore_l" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_fore_l_geom" contype="0" conaffinity="0" group="1" rgba=".65 .29 .22 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_1_hand_l" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_hand_l_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".035 .05 .022" />
+  </body>
+  <body name="human_1_upper_r" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_upper_r_geom" contype="0" conaffinity="0" group="1" rgba=".65 .29 .22 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_1_fore_r" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_fore_r_geom" contype="0" conaffinity="0" group="1" rgba=".65 .29 .22 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_1_hand_r" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_hand_r_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".035 .05 .022" />
+  </body>
+  <body name="human_1_thigh_l" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_thigh_l_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_1_shin_l" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_shin_l_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_1_foot_l" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_foot_l_geom" contype="0" conaffinity="0" group="1" rgba=".06 .07 .09 1" type="ellipsoid" size=".055 .11 .045" />
+  </body>
+  <body name="human_1_thigh_r" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_thigh_r_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_1_shin_r" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_shin_r_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_1_foot_r" mocap="true" pos="2 -4 -3">
+    <geom name="human_1_foot_r_geom" contype="0" conaffinity="0" group="1" rgba=".06 .07 .09 1" type="ellipsoid" size=".055 .11 .045" />
+  </body>
+  <body name="human_2_torso" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_torso_geom" contype="0" conaffinity="0" group="1" rgba=".24 .55 .37 1" type="ellipsoid" size=".17 .10 .26" />
+  </body>
+  <body name="human_2_head" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_head_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".085 .085 .11" />
+    <geom type="sphere" pos="-0.03 .078 .025" size=".012" rgba=".08 .09 .12 1" contype="0" conaffinity="0" group="1" />
+    <geom type="sphere" pos="0.03 .078 .025" size=".012" rgba=".08 .09 .12 1" contype="0" conaffinity="0" group="1" />
+    <geom type="ellipsoid" pos="0 .084 -.01" size=".014 .018 .02" rgba=".70 .49 .36 1" contype="0" conaffinity="0" group="1" />
+  </body>
+  <body name="human_2_upper_l" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_upper_l_geom" contype="0" conaffinity="0" group="1" rgba=".24 .55 .37 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_2_fore_l" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_fore_l_geom" contype="0" conaffinity="0" group="1" rgba=".24 .55 .37 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_2_hand_l" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_hand_l_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".035 .05 .022" />
+  </body>
+  <body name="human_2_upper_r" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_upper_r_geom" contype="0" conaffinity="0" group="1" rgba=".24 .55 .37 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_2_fore_r" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_fore_r_geom" contype="0" conaffinity="0" group="1" rgba=".24 .55 .37 1" type="capsule" size=".04 .13" />
+  </body>
+  <body name="human_2_hand_r" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_hand_r_geom" contype="0" conaffinity="0" group="1" rgba=".77 .57 .43 1" type="ellipsoid" size=".035 .05 .022" />
+  </body>
+  <body name="human_2_thigh_l" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_thigh_l_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_2_shin_l" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_shin_l_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_2_foot_l" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_foot_l_geom" contype="0" conaffinity="0" group="1" rgba=".06 .07 .09 1" type="ellipsoid" size=".055 .11 .045" />
+  </body>
+  <body name="human_2_thigh_r" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_thigh_r_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_2_shin_r" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_shin_r_geom" contype="0" conaffinity="0" group="1" rgba=".10 .13 .20 1" type="capsule" size=".06 .14" />
+  </body>
+  <body name="human_2_foot_r" mocap="true" pos="4 -4 -3">
+    <geom name="human_2_foot_r_geom" contype="0" conaffinity="0" group="1" rgba=".06 .07 .09 1" type="ellipsoid" size=".055 .11 .045" />
+  </body>
+  <body name="desk_chair" pos="-.23 -.76 0">
+    <geom type="box" pos="0 0 .46" size=".23 .21 .035" rgba=".12 .14 .18 1" contype="0" conaffinity="0" group="1" />
+    <geom type="box" pos="0 -.19 .72" size=".23 .025 .24" rgba=".12 .14 .18 1" contype="0" conaffinity="0" group="1" />
+    <geom type="box" pos="0 0 .24" size=".025 .025 .22" rgba=".12 .14 .18 1" contype="0" conaffinity="0" group="1" />
+    <geom type="box" pos="0 0 .035" size=".28 .26 .025" rgba=".12 .14 .18 1" contype="0" conaffinity="0" group="1" />
+  </body>
+  <body name="water_glass" pos="0 -4 -3">
+    <freejoint name="water_glass_free" />
+    <geom name="water_glass_collision" type="cylinder" size=".032 .055" mass=".22" rgba=".65 .87 .96 .32" group="0" />
+    <geom name="water_contents" type="cylinder" size=".028 .037" pos="0 0 -.014" mass="0" rgba=".10 .52 .85 .75" contype="0" conaffinity="0" group="2" />
+    <geom type="cylinder" size=".034 .003" pos="0 0 -.052" mass="0" rgba=".65 .85 .94 .8" contype="0" conaffinity="0" group="2" />
+  </body>
+  <body name="new_object" pos="1 -4 -3">
+    <freejoint name="new_object_free" />
+    <geom name="new_object_collision" type="box" size=".025 .025 .025" mass=".07" rgba=".92 .66 .14 1" group="0" />
+    <geom type="sphere" size=".004" pos="-0.01 -.025 .008" mass="0" rgba=".1 .12 .16 1" contype="0" conaffinity="0" group="2" />
+    <geom type="sphere" size=".004" pos="0.01 -.025 .008" mass="0" rgba=".1 .12 .16 1" contype="0" conaffinity="0" group="2" />
+  </body>
+  <camera name="social_overview" pos="-2.30 -3.20 2.80" xyaxes=".812 -.584 0 .300 .418 .858" fovy="47" />
+</mujocoinclude>

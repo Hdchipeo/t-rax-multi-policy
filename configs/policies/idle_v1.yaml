@@ -1,0 +1,69 @@
+policy:
+  name: autonomous_idle
+  version: 1.0.0
+  control_hz: 10
+  device: cpu # Mac M4 CPU is faster than MPS for small MLP models
+
+environment:
+  id: TRAXIdle-v1
+  timestep: 0.01
+  frameskip: 10  # 10 steps * 0.01s = 0.1s per step -> 10Hz control loop
+  scene_xml: assets/trax/scene.xml
+
+observation:
+  schema: idle_obs_v1
+  dim: 6
+  fields:
+    - name: target_visible
+      range: [0.0, 1.0]
+    - name: target_x_norm
+      range: [-1.0, 1.0]
+    - name: motion_level
+      range: [0.0, 1.0]
+    - name: head_pan_norm
+      range: [-1.0, 1.0]
+    - name: time_since_event_norm
+      range: [0.0, 1.0]
+    - name: prev_action_norm
+      range: [-1.0, 1.0]
+
+action:
+  type: discrete
+  dim: 5
+  mapping:
+    0: REST
+    1: LOOK_LEFT
+    2: LOOK_RIGHT
+    3: LOOK_CENTER
+    4: TRACK_TARGET
+
+reward:
+  components:
+    attention: 0.5
+    center_bonus: 0.3
+    rest_bonus: 0.05
+    repetition_penalty: -0.03
+    energy_penalty: -0.01
+
+network:
+  net_arch: [64, 64]
+  activation: relu
+
+training:
+  algorithm: PPO
+  total_timesteps: 1000000
+  learning_rate: 0.0003
+  n_steps: 2048
+  batch_size: 64
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+  n_envs: 8
+
+quantization:
+  platform: espdl_s8
+  target_device: esp32s3
+  calibration_samples: 1000
+  bits: 8

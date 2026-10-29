@@ -1,0 +1,114 @@
+{
+  "checkpoint_sha256": "772c9443810c35672b221b1b9ab9e5a48c44c54b5521fa2aa488747f321187ea",
+  "runtime_sha256": "f7ffae86ea97522f24c0964b599213776abdb839d5b74b20d3dd91e973ab9ef0",
+  "observation_schema": "desk_social_rl_v1",
+  "observation_shapes": {
+    "elevation": [
+      5
+    ],
+    "humans": [
+      3,
+      8
+    ],
+    "memory": [
+      5
+    ],
+    "objects": [
+      2,
+      6
+    ],
+    "robot": [
+      10
+    ],
+    "sensors": [
+      5
+    ],
+    "target": [
+      4
+    ],
+    "workspace": [
+      6
+    ]
+  },
+  "num_timesteps": 262144,
+  "seed": 42,
+  "config": {
+    "policy": {
+      "name": "desk_social_ppo_v1",
+      "observation_schema": "desk_social_rl_v1",
+      "algorithm": "PPO",
+      "controller": "direct_continuous_actions",
+      "control_hz": 20
+    },
+    "environment": {
+      "xml_path": "/Volumes/BOX_120GB/project/T-Rax/t-rax-multi-policy/assets/trax/desk_scene.xml",
+      "frameskip": 25,
+      "restrict_to_zone": true,
+      "safety_enabled": true,
+      "human_scenarios": true,
+      "domain_randomization": true,
+      "animate_tracks": false
+    },
+    "training": {
+      "total_timesteps": 262144,
+      "n_envs": 4,
+      "n_steps": 512,
+      "batch_size": 256,
+      "n_epochs": 6,
+      "learning_rate": 0.0003,
+      "gamma": 0.995,
+      "gae_lambda": 0.95,
+      "ent_coef": 0.01,
+      "clip_range": 0.2,
+      "horizon": 600,
+      "net_arch": [
+        128,
+        128
+      ],
+      "torch_threads": 1,
+      "seed": 42
+    },
+    "evaluation": {
+      "frequency": 65536,
+      "horizon": 1800,
+      "validation_seeds": [
+        1001,
+        1002
+      ],
+      "test_seeds": [
+        2001,
+        2002,
+        2003
+      ],
+      "test_yaws": [
+        0.0,
+        3.141592653589793,
+        -1.5707963267948966
+      ],
+      "gates": {
+        "wave_response_rate": 0.5,
+        "people_noticed": 2.0,
+        "objects_inspected": 1.0,
+        "safety_override_rate": 0.05
+      }
+    }
+  },
+  "effective_training": {
+    "n_envs": 4,
+    "n_steps": 512,
+    "n_epochs": 6,
+    "batch_size": 256,
+    "learning_rate": 0.0003
+  },
+  "scripted_motor_controller": false,
+  "privileged_reward_shaping": true,
+  "versions": {
+    "mujoco": "3.14.0",
+    "gymnasium": "1.3.0",
+    "torch": "2.14.1",
+    "stable-baselines3": "2.9.0"
+  },
+  "validation_passed": false,
+  "validation": null,
+  "created_at": "2026-10-15T06:50:36.952490+00:00"
+}

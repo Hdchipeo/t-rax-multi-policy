@@ -1,0 +1,17 @@
+{
+  "state": "completed",
+  "num_timesteps": 262144,
+  "target_timesteps": 262144,
+  "test_passed": false,
+  "test_mean": {
+    "return_": 3.8945325243414195,
+    "wave_response_rate": 0.25,
+    "people_noticed": 2.0,
+    "objects_inspected": 0.0,
+    "safety_override_rate": 0.0,
+    "mean_command_variation": 0.014412776169182587,
+    "idle_fraction": 0.9725925925925926
+  },
+  "output": "/Volumes/BOX_120GB/project/T-Rax/t-rax-multi-policy/checkpoints/desk_social_ppo_v1_20261015_134716",
+  "elapsed_seconds": 210.9874684580136
+}

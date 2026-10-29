@@ -1,0 +1,29 @@
+# Python environment & cache
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Mac OS & filesystem artifacts
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Simulation logs & local session files
+MUJOCO_LOG.TXT
+:memory:.ses
+*.swp
+*.swo
+
+# Large CAD assets exceeding GitHub limits (Highpoly CAD & raw formats)
+assets/trax/Trax Robot.obj
+assets/trax/Trax Robot.stl
+assets/trax/Trax_highpoly.stl
+assets/trax/Trax Robot.glb
+assets/trax/Trax Robot.step
+assets/trax/Trax Robot.iges

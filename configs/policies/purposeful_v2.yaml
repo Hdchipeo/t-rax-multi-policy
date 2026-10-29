@@ -1,0 +1,52 @@
+policy:
+  name: purposeful_behavioral_v2
+  version: 2.0.0
+  control_hz: 10
+  device: cpu
+environment:
+  timestep: 0.01
+  frameskip: 10
+  scene_xml: assets/trax/scene.xml
+  max_episode_steps: 500
+  controller_mode: goal_residual
+  domain_randomization: true
+observation:
+  schema: purposeful_obs_v2
+  dim: 54
+  # 39 legacy features + 6 goal types + 4 phases + time/progress + fear/arousal/readiness
+action:
+  type: continuous
+  dim: 5
+  semantics: signed_residual
+goals:
+  rest_seconds: 3.0
+  inspection_seconds: 2.0
+  memory_cooldown_seconds: 30.0
+reward:
+  components:
+    w_quiet: 0.65
+    w_jerk: 0.35
+    w_excessive_movement: 0.60
+    w_signal_spam: 0.75
+    w_collision: 2.0
+network:
+  net_arch: [128, 128]
+  activation: relu
+training:
+  algorithm: PPO
+  total_timesteps: 1000000
+  n_envs: 8
+  vec_type: subproc
+  learning_rate: 0.00015
+  n_steps: 1024
+  batch_size: 128
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.005
+evaluation:
+  frequency: 25000
+  seeds: [1001, 1002, 1003]
+  steps: 500
+  domain_randomization: true
